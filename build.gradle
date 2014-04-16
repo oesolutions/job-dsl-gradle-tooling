@@ -1,4 +1,24 @@
 
+apply plugin: 'java'
+
+
+version = 0.1
+
+
+repositories {
+    mavenCentral()
+    maven {
+        name 'jenkins'
+        url 'http://repo.jenkins-ci.org/releases'
+    }
+}
+
+
+dependencies {
+    compile group: 'org.jenkins-ci.main', name: 'jenkins-core', version: 1.480, ext: 'jar', transitive: true
+}
+
+
 task initWrapper(type: Wrapper) {
     description = 'Initialize Gradle wrapper'
     gradleVersion = '1.11'
