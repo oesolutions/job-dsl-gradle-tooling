@@ -1,0 +1,6 @@
+
+task initWrapper(type: Wrapper) {
+    description = 'Initialize Gradle wrapper'
+    gradleVersion = '1.11'
+}
+
