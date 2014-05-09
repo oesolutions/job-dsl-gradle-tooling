@@ -2,20 +2,25 @@
 apply plugin: 'java'
 
 
-version = 0.1
-
+version = 0.6
+sourceCompatibility = 1.5
 
 repositories {
-    mavenCentral()
     maven {
         name 'jenkins'
         url 'http://repo.jenkins-ci.org/releases'
     }
+    maven {
+        name 'gradle'
+        url 'http://repo.gradle.org/gradle/libs-releases-local'
+    }
+    mavenCentral()
 }
 
 
 dependencies {
-    compile group: 'org.jenkins-ci.main', name: 'jenkins-core', version: 1.480, ext: 'jar', transitive: true
+    compile group: 'org.jenkins-ci.main', name: 'jenkins-core', version: '1.480'
+    compile group: 'org.gradle', name: 'gradle-tooling-api', version: '1.11'
 }
 
 
