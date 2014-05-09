@@ -11,30 +11,38 @@ import java.io.File;
 //import org.gradle.tooling.*;
 //import org.gradle.tooling.model.*
 
-public final class ToolingTask implements FileCallable<String> {
-    private static final long serialVersionUID = 1;
+public class TestWrapper {
 
-    @Override public String invoke(File f, VirtualChannel channel) {
-        String ret = "nothing";
-        //GradleConnector connector = GradleConnector.newConnector()
-        //connector.forProjectDirectory(f)
-        //ProjectConnection connection = connector.connect()
-        //try {
-            // Load the model for the project
-        //    GradleProject project = connection.getModel(GradleProject.class)
-        //    ret = project.getName()
-        //} finally {
-            // Clean up
-        //    connection.close();
-        //}
+    public String stringFunc(FilePath path)
+    {
+        return path.act(new ToolingTask())
+    }
 
-        //ret = a.isDirectory() ? "yes" : "no"
-        //String[] stuff = f.list();
-        //if(stuff != null) {
-        //    ret = stuff.join("\n");
-        //}
+    private static final class ToolingTask implements FileCallable<String> {
+        private static final long serialVersionUID = 1;
 
-        return ret;
+        @Override public String invoke(File f, VirtualChannel channel) {
+            String ret = "nothing";
+            //GradleConnector connector = GradleConnector.newConnector()
+            //connector.forProjectDirectory(f)
+            //ProjectConnection connection = connector.connect()
+            //try {
+                // Load the model for the project
+            //    GradleProject project = connection.getModel(GradleProject.class)
+            //    ret = project.getName()
+            //} finally {
+                // Clean up
+            //    connection.close();
+            //}
+
+            //ret = a.isDirectory() ? "yes" : "no"
+            //String[] stuff = f.list();
+            //if(stuff != null) {
+            //    ret = stuff.join("\n");
+            //}
+
+            return ret;
+        }
     }
 }
 
